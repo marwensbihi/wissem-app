@@ -1,0 +1,122 @@
+<div class="as-checkout-wrapper space-extra-bottom" style="margin-top: 40px;">
+  <div class="container">
+    <!-- <div class="woocommerce-form-login-toggle">
+      <div class="woocommerce-info">Returning customer? <a href="#" class="showlogin">Click here to login</a>
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="col-xl-6 col-xxl-7 col-lg-12 mt-35 mt-xl-0">
+        <div class="woocommerce-notices-wrapper">
+          <div class="woocommerce-message">S'inscrire</div>
+        </div>
+
+        <form class="woocommerce-form-login mb-30" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="form-group col-6"><label>Nom <span style="color: red">*</span> </label>
+              <input type="text" class="form-control" placeholder="Nom" formControlName="nom">
+              <span *ngIf="!form.get('nom')?.valid && form.get('nom')?.touched"
+                style="font-size: 13px; color: red; margin-top: -50px;">
+                * Please provide a valid nom
+              </span>
+            </div>
+
+            <div class="form-group col-6"><label>Prénom <span style="color: red">*</span> </label>
+              <input type="text" class="form-control" placeholder="Prénom" formControlName="prenom">
+              <span *ngIf="!form.get('prenom')?.valid && form.get('prenom')?.touched"
+                style="font-size: 13px; color: red; margin-top: -50px;">
+                * Please provide a valid prenom
+              </span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-6"><label>Num tel <span style="color: red">*</span> </label>
+              <input type="number" class="form-control" placeholder="Num tel" formControlName="numTel">
+              <span *ngIf="!form.get('numTel')?.valid && form.get('numTel')?.touched"
+                style="font-size: 13px; color: red; margin-top: -50px;">
+                * Please provide a valid Num tel
+              </span>
+            </div>
+
+            <div class="form-group col-6"><label>Adresse</label>
+              <input type="text" class="form-control" placeholder="Adresse" formControlName="adresse">
+              <span *ngIf="!form.get('adresse')?.valid && form.get('adresse')?.touched"
+                style="font-size: 13px; color: red; margin-top: -50px;">
+                * Please provide a valid adresse
+              </span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-6"><label>Code postal</label>
+              <input type="number" class="form-control" placeholder="Code postal" formControlName="codePostal">
+              <span *ngIf="!form.get('codePostal')?.valid && form.get('codePostal')?.touched"
+                style="font-size: 13px; color: red; margin-top: -50px;">
+                * Please provide a valid codePostal
+              </span>
+            </div>
+
+            <div class="form-group col-6"><label>Ville</label>
+              <input type="text" class="form-control" placeholder="Ville" formControlName="ville">
+              <span *ngIf="!form.get('ville')?.valid && form.get('ville')?.touched"
+                style="font-size: 13px; color: red; margin-top: -50px;">
+                * Please provide a valid ville
+              </span>
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="row">
+            <div class="form-group col-6"><label>Login <span style="color: red">*</span> </label>
+              <input type="text" class="form-control" placeholder="Login" formControlName="username">
+              <span *ngIf="!form.get('username')?.valid && form.get('username')?.touched"
+                style="font-size: 13px; color: red; margin-top: -50px;">
+                * Please provide a valid username
+              </span>
+            </div>
+
+            <div class="form-group col-6"><label>E-mail <span style="color: red">*</span> </label>
+              <input type="text" class="form-control" placeholder="E-mail" formControlName="email">
+              <span *ngIf="!form.get('email')?.valid && form.get('email')?.touched"
+                style="font-size: 13px; color: red; margin-top: -50px;">
+                * Please provide a valid email
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group col-12"><label>Mot de passe <span style="color: red">*</span> </label>
+            <input type="password" class="form-control" placeholder="Mot de passe" formControlName="password">
+            <span *ngIf="!form.get('password')?.valid && form.get('password')?.touched"
+              style="font-size: 13px; color: red; margin-top: -50px;">
+              * Please provide a valid password
+            </span>
+          </div>
+
+          <hr>
+
+          <div class="form-group">
+            <button type="submit" class="as-btn">Inscription</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-xl-6 col-xxl-5 col-lg-9 mt-35 mt-xl-0">
+        <div class="title-area mb-30"><span class="sub-title"><img class="icon" src="assets/img/icon/title_icon.svg"
+              alt="icon"> Vous avez une compte?</span>
+          <h2 class="sec-title">Real Delicious Food Straight To <span class="font-style text-theme">Your
+              Table</span></h2>
+        </div>
+        <p class="mt-n2 mb-4">
+          Assertively envisioneer high-payoff architectures after interactive service.
+          Collaboratively whiteboard pandemic intellectual capital without cross-platform channels.
+        </p>
+        <div class="btn-wrap">
+          <a routerLink="/login" class="as-btn">Se connecter</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<p-toast position="bottom-right"></p-toast>

@@ -1,0 +1,99 @@
+<!--
+  ** GERANT:
+    - MY RESTAURANT -> PRODUCTS + SUPPLS + MENUS
+    - LIVREURS -> LIVRS
+    - FOURNISSEURS -> FOURS + INGRS
+    - COMMANDES -> COMMS
+
+  ** CLIENT:
+    - RESTAURANTS
+    - MES COMMANDES
+
+  ** LIVREURS
+    - COMMANDES
+
+  ** ADMIN:
+    - TO BE DECIDED
+-->
+
+<header class="as-header header-layout1" style="-webkit-box-shadow: 0px 5px 70px -30px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 5px 70px -30px rgba(0,0,0,0.75);
+box-shadow: 0px 5px 70px -30px rgba(0,0,0,0.75);">
+  <div class="header-top">
+    <div class="container as-container">
+      <div class="header-top-inner">
+        <div class="row justify-content-center justify-content-md-between align-items-center gy-2">
+          <div class="col-auto d-none d-md-block">
+            <p class="header-notice">Welcome!</p>
+          </div>
+          <div class="col-auto">
+            <div class="header-links">
+              <ul>
+
+                <ng-container *ngIf="!loggedIn">
+                  <li><a routerLink="login" style="margin-right: 30px"><i class="far fa-user"
+                        style="margin-right: 10px;"></i> Connexion </a></li>
+                </ng-container>
+
+                <ng-container *ngIf="loggedIn">
+                  <li><a routerLink="profile" style="margin-right: 30px"><i class="far fa-user"
+                        style="margin-right: 10px;"></i> Profile </a></li>
+                  <li><a style="margin-right: 30px; cursor: pointer;" (click)="deconnexion($event)"><i
+                        class="far fa-user" style="margin-right: 10px;"></i> Déconnexion </a></li>
+                </ng-container>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="menu-area">
+    <div class="container as-container">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-xl-auto">
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="logo-style1"><a routerLink="/"><img src="assets/img/logo.svg" alt="Pizzer"></a></div>
+            <nav class="main-menu d-none d-lg-inline-block">
+              <ul>
+                <li><a routerLink="/">Acceuil</a></li>
+
+                <ng-container *ngIf="!loggedIn">
+                  <li><a routerLink="/restaurants">Restaurants</a></li>
+                </ng-container>
+
+                <ng-container *ngIf="loggedIn && roleClient">
+                  <li><a routerLink="/restaurants">Restaurants</a></li>
+                  <li><a routerLink="/mes-commandes">Mes Commandes</a></li>
+                </ng-container>
+
+                <ng-container *ngIf="loggedIn && roleAdmin">
+                  <li><a routerLink="/restaurants">Restaurants</a></li>
+                  <li><a routerLink="/tous-les-commandes">Commandes</a></li>
+                  <li><a routerLink="/gerants">Gerants</a></li>
+                  <li><a routerLink="/clients">Clients</a></li>
+                </ng-container>
+
+              </ul>
+            </nav>
+            <button type="button" class="as-menu-toggle d-inline-block d-lg-none">
+              <i class="far fa-bars"></i>
+            </button>
+          </div>
+        </div>
+        <div class="col-auto d-none d-xl-block">
+          <ng-container>
+            <div class="header-button">
+              <a routerLink="/commande" class="as-btn">
+                <i class="fa fa-cart-shopping" style="margin-right: 10px"></i> COMMANDE
+              </a>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-confirmPopup></p-confirmPopup>
+  <p-toast position="bottom-right"></p-toast>
+</header>
